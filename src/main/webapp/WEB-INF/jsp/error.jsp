@@ -1,6 +1,6 @@
 <%-- 
-    Document   : home
-    Created on : 18 Oct 2018, 10:25:28 PM
+    Document   : error
+    Created on : 18 Oct 2018, 11:47:32 PM
     Author     : tekane
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        ${message}
+      Something went wrong: ${status} ${error}
     </body>
 </html>
