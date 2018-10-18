@@ -8,7 +8,6 @@ package net.onlineshopping.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 /**
  *
@@ -16,20 +15,11 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class IndexController {
-    
     @RequestMapping(value = {"/","home"} , method = RequestMethod.GET)
     public ModelAndView home(){
         ModelAndView modelAndView =  new ModelAndView();
-        modelAndView.setViewName("home");
-        modelAndView.addObject("message","Phasha"+" ke boss");
+        modelAndView.setViewName("jsp/home");
         return modelAndView;
     }
-    @RequestMapping(value = "/test" )
-    public ModelAndView test(@RequestParam("greeting") String greeting){
-        ModelAndView modelAndView =  new ModelAndView();
-        modelAndView.setViewName("home");
-        modelAndView.addObject("message",greeting);
-        return modelAndView;
-    }
-  
+
 }

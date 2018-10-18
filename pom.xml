@@ -6,7 +6,7 @@
 	<groupId>com.onlineshopping</groupId>
 	<artifactId>com.onlineshopping</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>onlineshopping</name>
 	<description>Online store</description>
@@ -57,13 +57,23 @@
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
+                </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>compile</scope>
+		</dependency>
+ 
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
 		</dependency>
                 <dependency>
-    <groupId>org.thymeleaf</groupId>
-    <artifactId>thymeleaf-spring5</artifactId>
-</dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+                </dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
