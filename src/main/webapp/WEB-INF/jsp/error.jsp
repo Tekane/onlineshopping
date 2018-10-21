@@ -3,7 +3,6 @@
     Created on : 18 Oct 2018, 11:47:32 PM
     Author     : tekane
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,5 +12,8 @@
     </head>
     <body>
       Something went wrong: ${status} ${error}
+      <div id="test">
+          <p>Testing</p>
+      </div>
     </body>
 </html>
