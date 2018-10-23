@@ -5,7 +5,8 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
-@ComponentScan({"net.onlineshopping.controller","net.onlineshopping.config","net.onlineshopping"})
+@ComponentScan({"net.onlineshopping.controller","net.onlineshopping.config","net.onlineshopping"," "
+        + "net.PTSonlineshoppingback_end"})
 public class Application extends SpringBootServletInitializer{
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
