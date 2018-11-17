@@ -5,11 +5,12 @@
  */
 package net.onlineshopping.controller;
 
+import net.PTSonlineshoppingback_end.model.Category;
 import net.PTSonlineshoppingback_end.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 /**
  *
@@ -17,14 +18,14 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class IndexController {
-    private  final CategoryService categoryService;
+    private final CategoryService categoryService;
     
     @Autowired
     public IndexController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
     
-    @RequestMapping(value = {"/","home"} , method = RequestMethod.GET)
+    @GetMapping(value = {"/","home"})
     public ModelAndView home(){
         ModelAndView modelAndView =  new ModelAndView();
         modelAndView.addObject("userClickHome",true);
@@ -34,7 +35,7 @@ public class IndexController {
         modelAndView.setViewName("/views/home");
         return modelAndView;
     }
-    @RequestMapping(value = {"/about"} , method = RequestMethod.GET)
+    @GetMapping(value = "/about")
     public ModelAndView about(){
         ModelAndView modelAndView =  new ModelAndView();
         modelAndView.addObject("userClickAbout",true);
@@ -42,11 +43,41 @@ public class IndexController {
         modelAndView.setViewName("/views/home");
         return modelAndView;
     }
-    @RequestMapping(value = {"/contact"} , method = RequestMethod.GET)
+    @GetMapping(value = "/contact")
     public ModelAndView contact(){
         ModelAndView modelAndView =  new ModelAndView();
         modelAndView.addObject("userClickContact",true);
         modelAndView.addObject("title","Contact Us");
+        modelAndView.setViewName("/views/home");
+        return modelAndView;
+    }
+    //Mothod to load all the products based on category
+    @GetMapping(value = {"/show/all/products"})
+    public ModelAndView showAllProductByCategory(){
+        ModelAndView modelAndView =  new ModelAndView();
+        modelAndView.addObject("title","All Products");
+        modelAndView.addObject("userClickAllProducts", true);
+        //Passing the list of categories
+        modelAndView.addObject("categories", this.categoryService.displayCategories());
+        modelAndView.setViewName("/views/home");
+        return modelAndView;
+        
+    }
+    //Mothod to load all the products based on category
+    @GetMapping(value = {"/show/category/{id}/products"})
+    public ModelAndView showCategoryProductsById(@PathVariable("id") int id){
+        ModelAndView modelAndView =  new ModelAndView();
+        //User Category to fetch a single Category
+        Category category = null;
+        category =  this.categoryService.getCategoryById(id);
+        
+       // modelAndView.addObject("userClickHome",true);
+        modelAndView.addObject("title",category.getName());
+        
+        //Passing the list of categories
+        modelAndView.addObject("categories", this.categoryService.displayCategories());
+        modelAndView.addObject("category", category);
+        modelAndView.addObject("userClickCategoryProducts", true);
         modelAndView.setViewName("/views/home");
         return modelAndView;
     }

@@ -4,8 +4,8 @@
     Author     : tekane
 --%>
 <div class="container">
-    <div class="row">
-        <h1>Contact Us</h1>
-        <p>Email: phasha15@gmail.com</p>
+      <div class="row">
+        <h1>About Us</h1>
+        <p>About us</p>
     </div>
 </div>
