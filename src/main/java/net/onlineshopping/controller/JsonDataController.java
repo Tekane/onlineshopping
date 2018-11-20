@@ -8,6 +8,7 @@ import java.util.List;
 import net.PTSonlineshoppingback_end.model.Product;
 import net.PTSonlineshoppingback_end.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,16 +20,20 @@ import org.springframework.web.bind.annotation.RestController;
  * @author tekane
  */
 @RestController
-//@RequestMapping("/api")
+@RequestMapping(value={"/api"})
 public class JsonDataController {
-   @Autowired
-    private  ProductService productService;
+    
+    private final ProductService productService;
 
-    @RequestMapping("/allProducts")
+    @Autowired
+    public JsonDataController(ProductService productService) {
+        this.productService = productService;
+    }
+    @RequestMapping(value = "/allProducts")
     @ResponseBody
     public List<Product> getActiveProducts(){
         List<Product> products =  this.productService.getActiveProducts();
-        return  products;
+        return products;
     }
     @GetMapping("/category/{id}/products")
     @ResponseBody
