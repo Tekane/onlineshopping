@@ -10,7 +10,22 @@
         <div class="col-md-3">
             <%@include file="./shared/sidebar.jsp"%>
         </div>
-        <!-- This will display the actual project -->
+        <!-- This will display the actual products -->
+        <div class="col-md-9">
+            <!-- Added breadcrumb components -->
+            <div class="row"></div>
+            <div class>
+                <div class="col-xs-12">
+                    <table id="productListTable" class="table table-striped table-bordered">
+                        <thead>
+                        <th>ID</th>
+                        <th>Name</th>
+                        </thead>
+                    </table>
+               </div>
+            </div>
+        </div>
+        
         <div class="col-md-9">
             <!-- Adding a breadcrumb component -->
             <div class="row">
