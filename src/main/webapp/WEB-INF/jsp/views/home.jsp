@@ -54,8 +54,9 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- DataTable Plugin -->
-    <script src="vendor/bootstrap/js/jquery.dataTables.js"></script> 
+    <script src="vendor/bootstrap/js/jquery.dataTable.js"></script>
     <!-- Custom javascript file -->
     <script><%@include file="/WEB-INF/js/myapp.js"%></script>
+    
 </div>
 </html>
