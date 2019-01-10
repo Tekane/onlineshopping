@@ -36,7 +36,7 @@ public class JsonDataController {
     @GetMapping("/category/{id}/products")
     @ResponseBody
     public List<Product> getActiveProductsByCategoryId(@PathVariable("id") int id){
-        List<Product> products =  this.productService.getActiveProductsByCategorId(id);
+        List<Product> products =  this.productService.getActiveProductsByCategoryId(id);
         return  products;
     }
 }
