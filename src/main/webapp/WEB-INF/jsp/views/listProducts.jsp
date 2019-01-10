@@ -14,18 +14,19 @@
         <div class="col-md-9">
             <!-- Added breadcrumb components -->
             <div class="row"></div>
-            <div class>
+            <div class="row">
                 <div class="col-xs-12">
                     <table id="productListTable" class="table table-striped table-bordered">
                         <thead>
-                        <th>ID</th>
-                        <th>Name</th>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                            </tr>
                         </thead>
                     </table>
                </div>
             </div>
         </div>
-        
         <div class="col-md-9">
             <!-- Adding a breadcrumb component -->
             <div class="row">
