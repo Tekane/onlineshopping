@@ -24,12 +24,16 @@ $(function(){
         ['2','AB'],
         ['3','ABC'],
         ['4','ABCD'],
-        ['5','ABCDE']
+        ['5','ABCDE'],
         ['6','ABCDEF']
     ];
-    var $table = $('#productListTable');
-    //execute the below code only where we have this table
+   var $table = $('#productListTable');
+   //execute the below code only where we have this table
     if($table.length){
-        console.log('Inside the table');
-    }
-});
+        $table.DataTable({
+            lengthMenu:[[3,5,10,-1],['3 Records','5 Records','10 Records','ALL']],
+            pageLength: 5 ,
+            data: products
+        });
+     } 
+}); 

@@ -24,6 +24,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <style><%@include file="/WEB-INF/css/shop-homepage.css"%></style>
   <style><%@include file="/WEB-INF/css/bootstrap-readable-theme.css"%></style>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.10.8/js/jquery.dataTables.min.js"></script>
 </head>
 <div class="wrapper">
     <!-- Navigation -->
@@ -49,13 +51,12 @@
     <!-- Footer -->
     <%@include file="./shared/footer.jsp"%>
     <!-- /.container -->
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- DataTable Plugin -->
-    <script src="vendor/bootstrap/js/jquery.dataTables.js"></script> 
-    <!-- Custom javascript file -->
+<!-- Custom javascript file -->
     <script><%@include file="/WEB-INF/js/myapp.js"%></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- DataTable Plugin -->
+    <script src="/vendor/bootstrap/js/jquery.dataTables.js"></script> 
 </div>
 </html>
