@@ -1,6 +1,6 @@
 /* global menu */
 $(function(){
-    //creating the active menu 
+        //creating the active menu 
     switch (menu){
         case'About Us':
             $('#about').addClass('active');
@@ -18,22 +18,55 @@ $(function(){
             $('#a_'+menu).addClass('active');
             break;
     }
-    // Jquery dataTable code
-    var products = [
-        ['1','A'],
-        ['2','AB'],
-        ['3','ABC'],
-        ['4','ABCD'],
-        ['5','ABCDE'],
-        ['6','ABCDEF']
-    ];
-   var $table = $('#productListTable');
-   //execute the below code only where we have this table
+    var $table = $('#productListTable');
     if($table.length){
+        var JsonUrl = '';
+        if (window.categoryId ==''){
+            JsonUrl =  window.contextRoot + '/api/allProducts';
+        }
+        else{
+            JsonUrl = window.contextRoot + '/api/category/'+ window.categoryId+'/products';
+        }
         $table.DataTable({
             lengthMenu:[[3,5,10,-1],['3 Records','5 Records','10 Records','ALL']],
             pageLength: 5 ,
-            data: products
-        });
-     } 
+           ajax: {
+                url: JsonUrl,
+                dataSrc: ''
+           },
+            columns: [
+               {
+                   data:'code',
+                   mRender: function(data , type , row){
+                        return '<img src="'+window.contextRoot+'/images/'+data+'.jpg" class="dataTableImg"/>';
+                   }
+               },
+               {
+                   data:'name'
+               },
+               {
+                   data:'brand'
+               },
+               {
+                   data:'unitPrice',
+                   mRender: function(data, type ,row){
+                       return '&#82; ' + data
+                   }
+               },
+               {
+                   data:'quantity'
+               },
+               {
+                   data: 'id',
+                   bSortable: false,
+                    mRender: function(data, type ,row){
+                       var str ='';
+                       str  += '<a href="'+window.contextRoot+'/show/'+data+'/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span><a/> &#160';
+                       str  += '<a href="'+window.contextRoot+'/cart/add/'+data+'/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"><a/>';
+                       return str;
+                  }
+               }
+           ]
+       });
+    }
 }); 

@@ -7,5 +7,6 @@
       <div class="row">
         <h1>About Us</h1>
         <p>About us</p>
+        <img src="../images/PRD4A121BFA26.jpg"/>
     </div>
 </div>

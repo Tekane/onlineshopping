@@ -6,7 +6,9 @@
 package net.onlineshopping.controller;
 
 import net.PTSonlineshoppingback_end.model.Category;
+import net.PTSonlineshoppingback_end.model.Product;
 import net.PTSonlineshoppingback_end.services.CategoryService;
+import net.PTSonlineshoppingback_end.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +21,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
     private final CategoryService categoryService;
+    private final ProductService productService;
     
     @Autowired
-    public IndexController(CategoryService categoryService) {
+    public IndexController(CategoryService categoryService,ProductService productService) {
         this.categoryService = categoryService;
+        this.productService  =  productService;
     }
     
     @GetMapping(value = {"/","home"})
@@ -80,5 +84,20 @@ public class IndexController {
         modelAndView.addObject("userClickCategoryProducts", true);
         modelAndView.setViewName("/views/home");
         return modelAndView;
+    }
+    //For viewing a single priduct
+    @GetMapping(value = "show/{id}/product")
+    public ModelAndView getProductByID(@PathVariable int id){ 
+        ModelAndView modelAndView =  new ModelAndView("views/home");
+        Product product = this.productService.getProductById(id);
+        //Update the view count 
+        product.setViews(product.getViews() + 1);
+        this.productService.updateProduct(product);
+        
+        modelAndView.addObject("title", product.getName());
+        modelAndView.addObject("product", product);
+        
+        modelAndView.addObject("userClickShowProduct", true);
+        return  modelAndView;
     }
 }
