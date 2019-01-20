@@ -9,6 +9,8 @@ import net.PTSonlineshoppingback_end.model.Category;
 import net.PTSonlineshoppingback_end.model.Product;
 import net.PTSonlineshoppingback_end.services.CategoryService;
 import net.PTSonlineshoppingback_end.services.ProductService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,8 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class IndexController {
+    private static  final Logger LOGGER =  LoggerFactory.getLogger(IndexController.class);
+   
     private final CategoryService categoryService;
     private final ProductService productService;
     
@@ -34,6 +38,8 @@ public class IndexController {
         ModelAndView modelAndView =  new ModelAndView();
         modelAndView.addObject("userClickHome",true);
         modelAndView.addObject("title","Home");
+        LOGGER.info("Inside PageController index method - INFO");
+        LOGGER.debug("Inside PageController index method - DEBUG");
         //Passing the list of categories
         modelAndView.addObject("categories", this.categoryService.displayCategories());
         modelAndView.setViewName("/views/home");
