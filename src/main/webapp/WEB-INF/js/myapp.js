@@ -82,4 +82,14 @@ $(function(){
            ]
        });
     }
+    
+    //dimissing the alert after  seconds 
+var $alert = $('.alert');
+if ($alert.length) {
+    setTimeout(function(){
+       $alert.fadeOut('slow');
+      } ,5000)
+  }
+
 }); 
+
