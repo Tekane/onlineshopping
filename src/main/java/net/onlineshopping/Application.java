@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EntityScan("net.PTSonlineshoppingback_end.model")
 @EnableJpaRepositories(basePackages = "net.PTSonlineshoppingback_end.repository")
-@ComponentScan({"net.onlineshopping.controller", "net.onlineshopping.config", "net.onlineshopping", " "
+@ComponentScan({"net.onlineshopping.controller", "net.onlineshopping", " "
     + "net.PTSonlineshoppingback_end", "net.PTSonlineshoppingback_end.services",
      "net.PTSonlineshoppingback_end.repository"})
 public class Application extends SpringBootServletInitializer {
