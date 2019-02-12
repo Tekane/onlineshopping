@@ -73,7 +73,7 @@ public class IndexController {
         return modelAndView;
         
     }
-    //Mothod to load all the products based on category
+    //Method to load all the products based on category
     @GetMapping(value = {"/show/category/{id}/products"})
     public ModelAndView showCategoryProductsById(@PathVariable("id") int id){
         ModelAndView modelAndView =  new ModelAndView();
@@ -91,7 +91,7 @@ public class IndexController {
         modelAndView.setViewName("/views/home");
         return modelAndView;
     }
-    //For viewing a single priduct
+    //For viewing a single product
     @GetMapping(value = "show/{id}/product")
     public ModelAndView getProductByID(@PathVariable int id){ 
         ModelAndView modelAndView =  new ModelAndView("views/home");
