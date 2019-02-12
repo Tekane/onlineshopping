@@ -78,9 +78,7 @@ public class IndexController {
     public ModelAndView showCategoryProductsById(@PathVariable("id") int id){
         ModelAndView modelAndView =  new ModelAndView();
         //User Category to fetch a single Category
-        Category category = null;
-        category =  this.categoryService.getCategoryById(id);
-        
+        Category category =  this.categoryService.getCategoryById(id);
        // modelAndView.addObject("userClickHome",true);
         modelAndView.addObject("title",category.getName());
         

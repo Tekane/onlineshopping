@@ -17,7 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/manage")
-public class ManagementController {
+public class ManagementProductController {
     @GetMapping(value = "/products")
     public ModelAndView showManageProducts(){
         ModelAndView modelAndView =  new ModelAndView();
