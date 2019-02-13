@@ -41,7 +41,7 @@ public class IndexController {
         LOGGER.info("Inside PageController index method - INFO");
         LOGGER.debug("Inside PageController index method - DEBUG");
         //Passing the list of categories
-        modelAndView.addObject("categories", this.categoryService.displayCategories());
+        modelAndView.addObject("categories", this.categoryService.getCategories());
         modelAndView.setViewName("/views/home");
         return modelAndView;
     }
@@ -61,14 +61,14 @@ public class IndexController {
         modelAndView.setViewName("/views/home");
         return modelAndView;
     }
-    //Mothod to load all the products based on category
+    //Method to load all the products based on category
     @GetMapping(value = {"/show/all/products"})
     public ModelAndView showAllProductByCategory(){
         ModelAndView modelAndView =  new ModelAndView();
         modelAndView.addObject("title","All Products");
         modelAndView.addObject("userClickAllProducts", true);
         //Passing the list of categories
-        modelAndView.addObject("categories", this.categoryService.displayCategories());
+        modelAndView.addObject("categories", this.categoryService.getCategories());
         modelAndView.setViewName("/views/home");
         return modelAndView;
         
@@ -83,7 +83,7 @@ public class IndexController {
         modelAndView.addObject("title",category.getName());
         
         //Passing the list of categories
-        modelAndView.addObject("categories", this.categoryService.displayCategories());
+        modelAndView.addObject("categories", this.categoryService.getCategories());
         modelAndView.addObject("category", category);
         modelAndView.addObject("userClickCategoryProducts", true);
         modelAndView.setViewName("/views/home");
